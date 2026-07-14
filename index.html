@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Ishneet 🌻</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FFF0F5;
+    --sun:#FFC93C;
+    --coral:#FF4FA3;
+    --teal:#22B8A6;
+    --plum:#5C2140;
+    --lavender:#FFD3E0;
+    --paper:#FFFDF9;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--plum);
+    font-family:'Quicksand', sans-serif;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.display{
+    font-family:'Baloo 2', cursive;
+    margin:0;
+  }
+
+  /* soft blobby background shapes */
+  .blob{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(2px);
+    opacity:0.5;
+    z-index:0;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    min-height:100svh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:40px 20px;
+    overflow:hidden;
+  }
+  .sun-wrap{
+    width:150px;height:150px;
+    margin-bottom:18px;
+    animation:float 5s ease-in-out infinite;
+  }
+  @keyframes float{
+    0%,100%{transform:translateY(0) rotate(0deg);}
+    50%{transform:translateY(-14px) rotate(6deg);}
+  }
+  .hero h1{
+    font-size:clamp(2.2rem, 7vw, 4rem);
+    color:var(--plum);
+    line-height:1.05;
+  }
+  .hero h1 span{color:var(--coral);}
+  .hero p.sub{
+    margin-top:14px;
+    font-size:1.2rem;
+    font-weight:600;
+    color:var(--plum);
+    opacity:0.75;
+    max-width:480px;
+  }
+  .scroll-hint{
+    margin-top:46px;
+    font-size:0.95rem;
+    font-weight:700;
+    color:var(--teal);
+    animation:bob 1.6s ease-in-out infinite;
+  }
+  @keyframes bob{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(6px);}
+  }
+
+  section{
+    position:relative;
+    padding:80px 20px;
+    z-index:1;
+  }
+
+  /* ---------- NOTE ---------- */
+  .note-section{
+    display:flex;
+    justify-content:center;
+  }
+  .note{
+    position:relative;
+    max-width:640px;
+    background:var(--paper);
+    border-radius:18px;
+    padding:46px 40px;
+    box-shadow:0 18px 40px rgba(58,46,77,0.12);
+    transform:rotate(-1.2deg);
+  }
+  .tape{
+    position:absolute;
+    top:-18px; left:50%;
+    transform:translateX(-50%) rotate(-3deg);
+    width:120px;height:34px;
+    background:rgba(255,206,74,0.85);
+    border:1px solid rgba(0,0,0,0.03);
+  }
+  .note h2{
+    font-size:1.6rem;
+    color:var(--coral);
+    margin-bottom:18px;
+  }
+  .note p{
+    font-size:1.08rem;
+    line-height:1.75;
+    font-weight:600;
+    color:var(--plum);
+    white-space:pre-line;
+  }
+  .note .signoff{
+    margin-top:22px;
+    font-family:'Baloo 2', cursive;
+    font-size:1.3rem;
+    color:var(--teal);
+  }
+
+  /* ---------- REASONS ---------- */
+  .reasons h2{
+    text-align:center;
+    font-size:clamp(1.8rem,4vw,2.4rem);
+    color:var(--plum);
+  }
+  .reasons .lead{
+    text-align:center;
+    max-width:480px;
+    margin:12px auto 40px;
+    font-weight:600;
+    opacity:0.7;
+  }
+  .card-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(210px,1fr));
+    gap:22px;
+    max-width:900px;
+    margin:0 auto;
+  }
+  .flip-card{
+    perspective:1000px;
+    height:180px;
+    cursor:pointer;
+  }
+  .flip-inner{
+    position:relative;
+    width:100%;height:100%;
+    text-align:center;
+    transition:transform 0.6s cubic-bezier(.4,.2,.2,1);
+    transform-style:preserve-3d;
+  }
+  .flip-card.flipped .flip-inner{
+    transform:rotateY(180deg);
+  }
+  .flip-front, .flip-back{
+    position:absolute;
+    inset:0;
+    border-radius:16px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    padding:16px;
+    backface-visibility:hidden;
+    font-weight:700;
+  }
+  .flip-front{
+    background:var(--lavender);
+    font-family:'Baloo 2', cursive;
+    font-size:1.15rem;
+    color:var(--plum);
+  }
+  .flip-front .emoji{
+    font-size:2.2rem;
+    margin-bottom:8px;
+  }
+  .flip-back{
+    background:var(--teal);
+    color:white;
+    transform:rotateY(180deg);
+    font-size:1rem;
+    font-weight:600;
+    line-height:1.4;
+  }
+
+  /* ---------- GARDEN ---------- */
+  .garden-section{
+    text-align:center;
+  }
+  .garden-section h2{
+    font-size:clamp(1.8rem,4vw,2.4rem);
+  }
+  .garden-section .lead{
+    max-width:480px;
+    margin:12px auto 30px;
+    font-weight:600;
+    opacity:0.75;
+  }
+  #boostBtn{
+    font-family:'Baloo 2', cursive;
+    font-size:1.2rem;
+    font-weight:700;
+    color:white;
+    background:var(--coral);
+    border:none;
+    padding:16px 34px;
+    border-radius:50px;
+    cursor:pointer;
+    box-shadow:0 10px 24px rgba(255,122,110,0.4);
+    transition:transform 0.15s ease;
+  }
+  #boostBtn:hover{transform:translateY(-3px) scale(1.03);}
+  #boostBtn:active{transform:translateY(1px) scale(0.98);}
+
+  .affirmation{
+    margin-top:22px;
+    font-family:'Baloo 2', cursive;
+    font-size:1.25rem;
+    color:var(--teal);
+    min-height:34px;
+  }
+
+  .garden{
+    margin:36px auto 0;
+    max-width:640px;
+    min-height:90px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px;
+    justify-content:center;
+    align-items:flex-end;
+    font-size:2rem;
+  }
+  .garden span{
+    display:inline-block;
+    animation:pop 0.5s cubic-bezier(.34,1.56,.64,1);
+  }
+  @keyframes pop{
+    0%{transform:scale(0) translateY(20px); opacity:0;}
+    100%{transform:scale(1) translateY(0); opacity:1;}
+  }
+
+  .surprise{
+    max-width:480px;
+    margin:36px auto 0;
+    opacity:0;
+    max-height:0;
+    overflow:hidden;
+    transition:opacity 0.6s ease, max-height 0.6s ease, margin 0.6s ease;
+  }
+  .surprise.show{
+    opacity:1;
+    max-height:460px;
+    margin-top:36px;
+  }
+  .surprise p{
+    font-weight:700;
+    margin-bottom:14px;
+    color:var(--plum);
+  }
+  .video-wrap{
+    position:relative;
+    padding-bottom:56.25%;
+    height:0;
+    overflow:hidden;
+    border-radius:14px;
+    box-shadow:0 14px 32px rgba(92,33,64,0.15);
+  }
+  .video-wrap iframe{
+    position:absolute;
+    top:0; left:0;
+    width:100%; height:100%;
+    border:none;
+  }
+
+  footer{
+    text-align:center;
+    padding:50px 20px 70px;
+    font-weight:700;
+    color:var(--plum);
+    opacity:0.6;
+  }
+
+  #confetti-canvas{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:50;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important; transition:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<canvas id="confetti-canvas"></canvas>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="blob" style="width:260px;height:260px;background:var(--sun);top:-60px;left:-60px;"></div>
+  <div class="blob" style="width:200px;height:200px;background:var(--teal);opacity:0.25;bottom:-40px;right:-40px;"></div>
+  <div class="sun-wrap">
+    <svg viewBox="0 0 100 100" width="100%" height="100%">
+      <circle cx="50" cy="50" r="26" fill="var(--sun)"/>
+      <g stroke="var(--sun)" stroke-width="6" stroke-linecap="round">
+        <line x1="50" y1="6" x2="50" y2="18"/>
+        <line x1="50" y1="82" x2="50" y2="94"/>
+        <line x1="6" y1="50" x2="18" y2="50"/>
+        <line x1="82" y1="50" x2="94" y2="50"/>
+        <line x1="18" y1="18" x2="26" y2="26"/>
+        <line x1="74" y1="74" x2="82" y2="82"/>
+        <line x1="82" y1="18" x2="74" y2="26"/>
+        <line x1="26" y1="74" x2="18" y2="82"/>
+      </g>
+      <circle cx="41" cy="47" r="3.2" fill="var(--plum)"/>
+      <circle cx="59" cy="47" r="3.2" fill="var(--plum)"/>
+      <path d="M40 58 Q50 68 60 58" stroke="var(--plum)" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+    </svg>
+  </div>
+  <h1>Hey <span>Ishneet</span> 🌸<br>this one's for you</h1>
+  <p class="sub">A little pink corner of the internet, built for the Delhi girl who runs on coffee, built just to make you smile today.</p>
+  <div class="scroll-hint">↓ scroll down, there's more ↓</div>
+</section>
+
+<!-- NOTE -->
+<section class="note-section">
+  <div class="note">
+    <div class="tape"></div>
+    <h2>Just so you know...</h2>
+    <p>I know you're going through a rough phase, and it's okay if you don't feel okay all the time. Just remember that you're one of the most amazing and talented people I know, and I'm so proud of you.
+
+Your family, your friends, and everyone who knows you is proud of you too. If you ever need anything, or just someone to be there, I'll always be here for you.</p>
+    <div class="signoff">always in your corner, ❤️</div>
+  </div>
+</section>
+
+<!-- REASONS -->
+<section class="reasons">
+  <h2>A few reminders, in case you forgot 🌟</h2>
+  <p class="lead">Tap a card to flip it.</p>
+  <div class="card-grid" id="cardGrid"></div>
+</section>
+
+<!-- GARDEN / INTERACTIVE -->
+<section class="garden-section">
+  <h2>Need a little boost?</h2>
+  <p class="lead">Press the button. Every press grows something in your garden and drops you a little sunshine.</p>
+  <button id="boostBtn">🌼 Tap for a boost</button>
+  <div class="affirmation" id="affirmation"></div>
+  <div class="garden" id="garden"></div>
+  <div class="surprise" id="surprise">
+    <p>Okay, since you're the one who put this in my head in the first place, here, have it back:</p>
+    <div class="video-wrap">
+      <iframe src="https://www.youtube.com/embed/mXCFRyev28s" title="song" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <p style="margin-top:10px; font-size:0.85rem;">
+      <a href="https://www.youtube.com/watch?v=mXCFRyev28s" target="_blank" rel="noopener" style="color:var(--teal); font-weight:700;">Video not loading? Play it on YouTube instead ▶</a>
+    </p>
+  </div>
+</section>
+
+<footer>
+  made with care, just for you 🌻
+</footer>
+
+<script>
+// ---------- FLIP CARDS ----------
+const reasons = [
+  {emoji:"💪", front:"You've done this before", back:"Every hard phase you've ever faced, you came out the other side. This one is no different."},
+  {emoji:"😄", front:"That laugh of yours", back:"Loud, unfiltered, zero patience for nonsense. Kind of your whole personality, and it's the best thing in any room."},
+  {emoji:"🌤️", front:"Allowed to rest", back:"Feeling empty doesn't mean you're failing. Slow days count too."},
+  {emoji:"🎯", front:"Proud of you, always", back:"Not just for what you do, for who you are, on the good days and the hard ones."},
+  {emoji:"💧", front:"Quick check in", back:"When did you last drink water? Go on, this card isn't flipping back until you do."},
+  {emoji:"📞", front:"One text away", back:"Whatever you need, a distraction, a rant, silence, company, I'm here."}
+];
+
+const grid = document.getElementById('cardGrid');
+reasons.forEach(r=>{
+  const card = document.createElement('div');
+  card.className = 'flip-card';
+  card.innerHTML = `
+    <div class="flip-inner">
+      <div class="flip-front"><div class="emoji">${r.emoji}</div>${r.front}</div>
+      <div class="flip-back">${r.back}</div>
+    </div>`;
+  card.addEventListener('click', ()=> card.classList.toggle('flipped'));
+  grid.appendChild(card);
+});
+
+// ---------- GARDEN + AFFIRMATIONS ----------
+const flowers = ["🌸","💗","🌷","🩷","🌺","🍀","🌹","💐"];
+const affirmations = [
+  "you're doing better than you think 🌤️",
+  "this feeling is temporary, you are not 🌿",
+  "so proud of you, always 💗",
+  "take the deep breath, you've earned it 🌬️",
+  "you make the world a little softer 🕊️",
+  "small steps still count as progress 🐾",
+  "you are so loved, even on quiet days ☁️",
+  "one more flower for one more reason to smile 🌱",
+  "go drink some water, then come back for another 💧",
+  "saving you a spot on the couch for the next episode 📺",
+  "there's a Gurgaon night out waiting for you whenever you're ready 🌃"
+];
+
+const garden = document.getElementById('garden');
+const affirmationEl = document.getElementById('affirmation');
+const boostBtn = document.getElementById('boostBtn');
+const surprise = document.getElementById('surprise');
+let boostCount = 0;
+
+boostBtn.addEventListener('click', ()=>{
+  boostCount++;
+  const f = document.createElement('span');
+  f.textContent = flowers[Math.floor(Math.random()*flowers.length)];
+  garden.appendChild(f);
+  affirmationEl.textContent = affirmations[Math.floor(Math.random()*affirmations.length)];
+  burstConfetti();
+  if(boostCount === 1){
+    surprise.classList.add('show');
+  }
+});
+
+// ---------- CONFETTI ----------
+const canvas = document.getElementById('confetti-canvas');
+const ctx = canvas.getContext('2d');
+function resize(){canvas.width = window.innerWidth; canvas.height = window.innerHeight;}
+window.addEventListener('resize', resize);
+resize();
+
+const colors = ['#FF7A6E','#FFCE4A','#22B8A6','#D8C9F0','#3A2E4D'];
+let particles = [];
+
+function burstConfetti(){
+  const cx = window.innerWidth/2;
+  const cy = window.innerHeight*0.65;
+  for(let i=0;i<60;i++){
+    particles.push({
+      x: cx, y: cy,
+      vx: (Math.random()-0.5)*10,
+      vy: Math.random()*-8-3,
+      size: Math.random()*7+4,
+      color: colors[Math.floor(Math.random()*colors.length)],
+      rot: Math.random()*360,
+      vr: (Math.random()-0.5)*10,
+      life: 100
+    });
+  }
+}
+
+function animate(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  particles.forEach(p=>{
+    p.x += p.vx;
+    p.y += p.vy;
+    p.vy += 0.28;
+    p.rot += p.vr;
+    p.life -= 1.4;
+    ctx.save();
+    ctx.translate(p.x,p.y);
+    ctx.rotate(p.rot*Math.PI/180);
+    ctx.globalAlpha = Math.max(p.life/100,0);
+    ctx.fillStyle = p.color;
+    ctx.fillRect(-p.size/2,-p.size/2,p.size,p.size);
+    ctx.restore();
+  });
+  particles = particles.filter(p=>p.life>0);
+  requestAnimationFrame(animate);
+}
+animate();
+</script>
+
+</body>
+</html>
